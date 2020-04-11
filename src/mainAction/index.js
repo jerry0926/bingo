@@ -1,8 +1,3 @@
-
-const onChange = () => {
-
-}
-
 const chooseBox = (type, val) => {
     if(type === 'value'){
         
@@ -21,6 +16,5 @@ const shuffle = (array) => {
 
 export {
     chooseBox,
-    onChange,
     shuffle
 }

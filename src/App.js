@@ -3,17 +3,10 @@ import styled from 'styled-components'
 import { Box, InputBox } from './components'
 import { connect } from 'react-redux'
 import { mapStateToProps } from './action'
-// import { shuffle } from './mainAction'
-
-// const originArray = shuffle(Array.from(Array(16).keys(), x=>x+1));
 
 class App extends Component {
   constructor(props) {
     super(props)
-    // this.state = {
-    //   originArray: originArray,
-    //   input: ''
-    // }
   }
 
   render() {
