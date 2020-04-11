@@ -1,33 +1,31 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
 import { Box, InputBox } from './components'
-import { shuffle } from './mainAction'
+import { connect } from 'react-redux'
+import { mapStateToProps } from './action'
+// import { shuffle } from './mainAction'
+
+// const originArray = shuffle(Array.from(Array(16).keys(), x=>x+1));
 
 class App extends Component {
   constructor(props) {
     super(props)
-    const originArray = shuffle(new Array(16).keys());
-    console.log(Array(16).keys())
-    this.state = {
-      originArray: originArray
-    }
+    // this.state = {
+    //   originArray: originArray,
+    //   input: ''
+    // }
   }
 
-
-
   render() {
-    console.log(this.state.originArray)
     return (
       <Bingo>
         <InputBox />
-        <Box index={0}>1</Box>
-        <Box>2</Box>
-        <Box>3</Box>
-        <Box>4</Box>
-        <Box>1</Box>
-        <Box>2</Box>
-        <Box>3</Box>
-        <Box>4</Box>
+        {
+          this.props.originArray.map(
+            (val, index) => <Box key={`arrayBox_${index}`} index={index}>{val}</Box>
+          )
+        }
+        <span onClick={()=>this.increment()}>321</span>
       </Bingo>
     )
   }
@@ -38,9 +36,9 @@ const Bingo = styled.div`
   display: inline-flex;
   width: 400px;
   flex-wrap: wrap;
-  margin: 200px 0 0 50%;
+  margin: 80px 0 0 50%;
   transform: translateX(-50%);
 `
 
 
-export default App;
+export default connect(mapStateToProps)(App);

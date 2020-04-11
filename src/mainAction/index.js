@@ -5,7 +5,7 @@ const onChange = () => {
 
 const chooseBox = (type, val) => {
     if(type === 'value'){
-
+        
     }else{
         console.log(val)
     }
