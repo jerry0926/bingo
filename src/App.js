@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { mapStateToProps } from './action'
 
 class App extends Component {
+  // eslint-disable-next-line
   constructor(props) {
     super(props)
   }
@@ -13,7 +14,7 @@ class App extends Component {
     return (
       <React.Fragment>
         <Bingo>
-          <InputBox />
+          <InputBox value={this.props.inputValue}/>
           {
             this.props.originArray.map(
               (val, index) => <Box key={`arrayBox_${index}`} index={index} className={this.props.chooseArray.includes(index) ? 'select' : ''}>{val}</Box>
@@ -81,7 +82,11 @@ const HintModal = styled.div`
     p{
       width: 100%;
       text-align: center;
-      margin: 0;
+      margin: 10px 0 0 0;
+    }
+    button{
+      margin-top: -10px;
+      border-radius: 10px;
     }
   }
 `

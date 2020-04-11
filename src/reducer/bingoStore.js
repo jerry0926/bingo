@@ -1,10 +1,13 @@
 import { shuffle, detectWin } from '../mainAction'
 
-const originArray = shuffle(Array.from(Array(16).keys(), x=>x+1));
+const originArray = () => {
+    const array = shuffle(Array.from(Array(16).keys(), x=>x+1));
+    return array
+}
 
 const initialState = {
     inputValue: '',
-    originArray: originArray,
+    originArray: originArray(),
     chooseArray: [],
     gameState: false
 };
@@ -19,7 +22,7 @@ const bindoReducer = (state = initialState, action) => {
         case 'CHOOSE_BOX':
             let index;
             
-            if(action.insertType == 'index'){
+            if(action.insertType === 'index'){
                 index = action.index
             }else{
                 const valIndex = state.originArray.indexOf(Number(state.inputValue))
@@ -29,14 +32,17 @@ const bindoReducer = (state = initialState, action) => {
             }
             const newChooseArray = Array.from(new Set([...state.chooseArray, index]))
             const gameState = detectWin(newChooseArray)
-            console.log(gameState)
             return {
                 ...state,
+                inputValue: '',
                 chooseArray: newChooseArray,
                 gameState: gameState
             };
         case 'RESTART':
-            return initialState;
+            return {
+                ...initialState,
+                originArray: originArray()
+            };
         default:
             return state;
     }

@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 const InputBox = (props) => {
     return (
         <Input>
-            <input value={props.inputValue} onChange={(e) => props.dispatch({ type: 'INPUT_CHANGE', inputValue: e.target.value })} />
+            <input value={props.value} onChange={(e) => props.dispatch({ type: 'INPUT_CHANGE', inputValue: e.target.value })} />
             <button
                 onClick={(e) => props.dispatch({ type: 'CHOOSE_BOX', insertType: 'value'})}>
                 送出
