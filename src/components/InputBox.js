@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components'
 import { chooseBox } from '../mainAction'
 import { connect } from 'react-redux'
-import { mapStateToProps } from '../action'
 
 const InputBox = (props) =>
     <Input>
@@ -20,4 +19,4 @@ const Input = styled.div`
     justify-content: center;
 `
 
-export default connect(mapStateToProps)(InputBox)
+export default connect()(InputBox)

@@ -25,7 +25,6 @@ class App extends Component {
             (val, index) => <Box key={`arrayBox_${index}`} index={index}>{val}</Box>
           )
         }
-        <span onClick={()=>this.increment()}>321</span>
       </Bingo>
     )
   }
