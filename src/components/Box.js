@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components'
-import { chooseBox } from '../mainAction'
+import { connect } from 'react-redux'
 
 const Box = ({...props}) => 
-    <BoxStyled 
-        onClick={()=>chooseBox('index', props.index)}>
+    <BoxStyled
+        className={props.className}
+        onClick={(e) => props.dispatch({ type: 'CHOOSE_BOX', insertType: 'index', index: props.index})}>
         {props.children}
     </BoxStyled>
 
@@ -16,4 +17,4 @@ const BoxStyled = styled.div`
     cursor: pointer;
 `
 
-export default Box
+export default connect()(Box)

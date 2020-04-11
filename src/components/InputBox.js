@@ -1,16 +1,18 @@
 import React from 'react';
 import styled from 'styled-components'
-import { chooseBox } from '../mainAction'
 import { connect } from 'react-redux'
 
-const InputBox = (props) =>
-    <Input>
-        <input value={props.inputValue} onChange={(e) => props.dispatch({ type: 'INPUT_CHANGE', inputValue: e.target.value })} />
-        <button
-            onClick={(e) => { chooseBox('value') }}>
-            送出
-        </button>
-    </Input>
+const InputBox = (props) => {
+    return (
+        <Input>
+            <input value={props.inputValue} onChange={(e) => props.dispatch({ type: 'INPUT_CHANGE', inputValue: e.target.value })} />
+            <button
+                onClick={(e) => props.dispatch({ type: 'CHOOSE_BOX', insertType: 'value'})}>
+                送出
+            </button>
+        </Input>
+    )
+}
 
 const Input = styled.div`
     width: 100%;
@@ -18,5 +20,7 @@ const Input = styled.div`
     display: flex;
     justify-content: center;
 `
+
+
 
 export default connect()(InputBox)
