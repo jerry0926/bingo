@@ -1,6 +1,6 @@
 {
   "name": "bingo",
-  "homepage": "git@github.com:jerry0926/bingo.git",
+  "homepage": "https://github.com/jerry0926/bingo.git",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
